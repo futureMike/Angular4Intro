@@ -1,0 +1,33 @@
+<h4>Store Server Information</h4><br>
+<p>rename the store server:</p>
+<input type="text"
+class="form-control"
+[(ngModel)]="serverName">
+<button class="btn btn-primary" 
+[disabled]="!allowNewServer"
+(click)="onCreateServer()">Add Server</button>
+
+<p *ngIf="serverCreated">Server {{ serverName }} created!</p>
+
+<app-server *ngFor="let server of servers"></app-server>
+<br>
+<h4>Cart Information:</h4>
+<button class="btn btn-success"
+(click)="onAddItemToCart()">AddItemToCart</button>
+<p>{{ cartStatus }}</p>
+<button class="btn btn-warning"
+(click)="onRemoveItemFromCart()">RemoveItemFromCart</button>
+<br>
+
+<br>
+<h4>{{ customer }} Information</h4>
+<p>Hello Hardley Dangerous customer!</p>
+<p>Enter your name in the box below!</p>
+<input type="text"
+class="form-control"
+[(ngModel)]="customer">
+<button class="btn btn-warning"
+[disabled]="!customer" 
+(click)="onClearCustomer()"
+value="Reset">Clear Name</button>
+
